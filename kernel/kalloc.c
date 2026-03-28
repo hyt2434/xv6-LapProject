@@ -80,7 +80,6 @@ kalloc(void)
     memset((char*)r, 5, PGSIZE); // fill with junk
   return (void*)r;
 }
-
 // Thu thập số bytes bộ nhớ còn trống
 uint64 freemem_amount(void) {
   struct run *r;
