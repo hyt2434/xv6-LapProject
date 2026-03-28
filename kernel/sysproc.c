@@ -6,6 +6,26 @@
 #include "spinlock.h"
 #include "proc.h"
 #include "vm.h"
+#include "sysinfo.h"
+
+uint64 sys_sysinfo(void) {
+  uint64 addr;
+  struct sysinfo info;
+
+  // Lấy địa chỉ pointer từ user space
+  argaddr(0, &addr);
+
+  // Điền thông tin vào struct
+  info.freemem    = freemem_amount();
+  info.nproc      = nproc_count();
+  info.nopenfiles = nopenfiles_count();
+
+  // Copy struct về user space
+  if (copyout(myproc()->pagetable, addr, (char *)&info, sizeof(info)) < 0)
+    return -1;
+
+  return 0;
+}
 
 uint64
 sys_exit(void)
@@ -106,4 +126,12 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
+}
+uint64
+sys_trace(void)
+{
+  int mask;
+  argint(0, &mask);
+  myproc()->tracemask = mask;
+  return 0;
 }

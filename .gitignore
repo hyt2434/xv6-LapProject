@@ -1,4 +1,3 @@
-*~
 _*
 *.o
 *.d
@@ -11,8 +10,15 @@ entryother
 initcode
 initcode.out
 kernelmemfs
-mkfs
 kernel/kernel
 user/usys.S
 .gdbinit
 TAGS
+*:Zone.Identifier
+*~
+*.swp
+*.swo
+.DS_Store
+.vscode/
+.idea/
+*.log
