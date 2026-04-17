@@ -134,7 +134,8 @@ kexec(char *path, char **argv)
   p->trapframe->epc = elf.entry;  // initial program counter = ulib.c:start()
   p->trapframe->sp = sp; // initial stack pointer
   proc_freepagetable(oldpagetable, oldsz);
-  if(p->pid == 1)
+
+  if(p->print_pagetable)
     vmprint(p->pagetable);
 
 

@@ -494,10 +494,8 @@ vmprint_level(pagetable_t pagetable, int depth)
     if (!(pte & PTE_V))
       continue;
 
-    for (int d = 0; d <= depth; d++) {
-      if (d > 0) printf(" ");
-      printf("..");
-    }
+    for (int d = 0; d <= depth; d++)
+      printf(" ..");
 
     uint64 pa = PTE2PA(pte);
     printf("%d: pte %p pa %p\n", i, (void*)pte, (void*)pa);
@@ -510,8 +508,6 @@ vmprint_level(pagetable_t pagetable, int depth)
 void
 vmprint(pagetable_t pagetable)
 {
-  if(pagetable == 0)
-    return;
   printf("page table %p\n", pagetable);
   vmprint_level(pagetable, 0);
 }

@@ -146,6 +146,7 @@ UPROGS=\
 	$U/_forphan\
 	$U/_dorphan\
 	$U/_trace\
+	$U/_ptprint\
 	$U/_sysinfotest\
 
 fs.img: mkfs/mkfs README $(UPROGS)

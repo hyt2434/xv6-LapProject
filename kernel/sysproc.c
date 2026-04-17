@@ -135,3 +135,16 @@ sys_trace(void)
   myproc()->tracemask = mask;
   return 0;
 }
+
+uint64
+sys_setptprint(void)
+{
+  int on;
+
+  argint(0, &on);
+  if(on != 0 && on != 1)
+    return -1;
+
+  myproc()->print_pagetable = on;
+  return 0;
+}
