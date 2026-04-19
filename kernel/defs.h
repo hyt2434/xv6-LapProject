@@ -173,6 +173,7 @@ int             ismapped(pagetable_t, uint64);
 uint64          vmfault(pagetable_t, uint64, int);
 void            vmprint(pagetable_t);
 
+
 // plic.c
 void            plicinit(void);
 void            plicinithart(void);
@@ -186,3 +187,5 @@ void            virtio_disk_intr(void);
 
 // number of elements in fixed-size array
 #define NELEM(x) (sizeof(x)/sizeof((x)[0]))
+
+uint64 sys_pgaccess(void); 
