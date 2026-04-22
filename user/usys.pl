@@ -44,3 +44,5 @@ entry("pause");
 entry("uptime");
 entry("sysinfo");
 entry("trace");
+entry("setptprint");
+entry("pgaccess");
