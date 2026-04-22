@@ -105,5 +105,6 @@ struct proc {
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
   int tracemask;                // If non-zero, trace syscalls.
+  int print_pagetable;         // If non-zero, print page table after exec().
 };
 

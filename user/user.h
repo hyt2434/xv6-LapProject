@@ -27,6 +27,7 @@ int pause(int);
 int uptime(void);
 int sysinfo(struct sysinfo *);
 int trace(int);
+int setptprint(int);
 
 // ulib.c
 int stat(const char*, struct stat*);
